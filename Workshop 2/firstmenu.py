@@ -17,10 +17,10 @@ loop = 0
 while loop == 0:
 
     if choice == 'H':
-        print("Hello "+name)
+        print("Hello", name)
         printmenu()
     elif choice == 'G':
-        print("Goodbye "+name)
+        print("Goodbye", name)
         printmenu()
     elif choice == 'Q':
         print('Finished')

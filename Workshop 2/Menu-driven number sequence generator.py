@@ -34,7 +34,7 @@ while loop == 0:
                 print(i, end = ' ')
     elif menuinput == '3':
         for i in range(x, y, 1):
-                print((i**i), end = ' ')
+                print((i*i), end = ' ')
     elif menuinput == '4':
         print('Goodbye')
         loop = 1
