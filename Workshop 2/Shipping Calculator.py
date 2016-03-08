@@ -3,7 +3,6 @@ __author__ = "Jesse Hermon"
 
 number_of_items =int(input('Enter the number of items: '))
 
-
 while number_of_items < 0:
     print("Invaild number of items!")
     number_of_items = int(input('Enter the number of items: '))
