@@ -1,0 +1,3 @@
+# CP1404
+# This repository houses all of my workshop work for the subject CP1404
+# Week 3 was a mistake so all of the week after just follow on therefore workshop 3 is actually workshop 4...
