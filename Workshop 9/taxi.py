@@ -62,12 +62,37 @@ class UnreliableCar(Car):
 
     def __init__(self,fuel,reliability):
         super().__init__(fuel)
-        self.reliablility = reliability
+        self.fuel = fuel
+        self.reliability = reliability
+        print(reliability)
 
 
     def drive(self,distance):
         random_number = random.randint(0,100)
+        print(random_number)
 
-        if random_number < self.reliablility:
+        distance_driven = 0
+        if random_number < self.reliability:
+            print('Driving')
             distance_driven = super().drive(distance)
-            return distance_driven
+        else: print('Stalled')
+        return distance_driven
+
+    def __str__(self):
+
+        # To determine whether the car has driven
+
+
+        return "fuel={}".format(self.fuel)
+
+class SilverServiceTaxi(Taxi):
+
+    def __init__(self,name,fuel):
+        super().__init__(name, fuel)
+        Taxi.price_per_km = 1.20
+        self.current_fare_distance = 0
+        self.fanciness = 0.3
+
+    def start_fare(self):
+        """ begin a new fare """
+        self.current_fare_distance = 4.5
