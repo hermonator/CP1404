@@ -19,7 +19,8 @@ def main():
     # Step 3
     taxi1.odometer = 0
     taxi1.drive(100)
-    print(taxi1.get_fare)
+
+    print(taxi1.get_fare())
 
     #   Check
     #   print(taxi1)
