@@ -4,11 +4,16 @@ class Guitar:
 
         self.name = name
         self.year = year
-        self.cost = cost
+        self.cost = float(cost)
 
 
     def __str__(self):
+        
+        
         return '{} ({}) : {}'.format(self.name,self.year,self.cost)
+
+        
+        
 
     def get_age(self):
 
