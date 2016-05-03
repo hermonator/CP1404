@@ -95,4 +95,9 @@ class SilverServiceTaxi(Taxi):
 
     def get_fare(self):
         """ get the price for the taxi trip """
-        return (Taxi.price_per_km * self.fanciness * self.current_fare_distance) + 4.5
+
+        flagfall = 0
+        if self.current_fare_distance > 0:
+            flagfall = 4.5
+
+        return (Taxi.price_per_km * self.fanciness * self.current_fare_distance) + flagfall
