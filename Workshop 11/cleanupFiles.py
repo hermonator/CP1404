@@ -5,18 +5,9 @@ import os, shutil
 
 __author__ = 'Lindsay Ward'
 
-# change to desired directory
-os.chdir('Lyrics/Christmas')
-# print a list of all files (test)
-# print(os.listdir('.'))
-
-# make a new directory
-# os.mkdir('temp')
-
-# loop through each file in the (original) directory
-for filename in os.listdir('.'):
-    # ignore directories, just process files
-    if not os.path.isdir(filename):
+for root, dirs, files in os.walk(".", topdown=False):
+    for filename in files:
+        print(os.path.join(filename))
         new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
 
 
@@ -55,6 +46,22 @@ for filename in os.listdir('.'):
         new_name_check3 = new_name_check3 + 't'
 
         print(new_name_check3)
+    for name in dirs:
+        print(os.path.join(root, name))
+
+# change to desired directory
+#os.chdir('Lyrics/Christmas')
+# print a list of all files (test)
+# print(os.listdir('.'))
+
+# make a new directory
+# os.mkdir('temp')
+
+# loop through each file in the (original) directory
+
+    # ignore directories, just process files
+
+
 
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
