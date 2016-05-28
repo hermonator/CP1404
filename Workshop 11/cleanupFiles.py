@@ -12,41 +12,49 @@ os.chdir('Lyrics/Christmas')
 
 # make a new directory
 # os.mkdir('temp')
-def get_fixed_filename(name):
-    print(name)
-    if name.find != -1:
-        text_array = name.split('_')
-        #print(text_array)
-        counter = 0
-        for i in text_array:
-            length_of_word = len(i)
-            new_text = ''
-            for j in range(0,length_of_word):
-                if j == 0:
-                    new_text = new_text + i[j].upper()
-                else:
-                    new_text = new_text + i[j]
-                #print(new_text)
-            text_array[counter] = new_text
-            counter = counter + 1
-        #print(text_array)
-        new_string =''
-        new_string = '_'.join(text_array)
-        #text_array = text_array.join()
-        #print(new_string)
-    else:
-        for i in name:
-            print(i)
-            #if ord(i)
-
 
 # loop through each file in the (original) directory
 for filename in os.listdir('.'):
     # ignore directories, just process files
     if not os.path.isdir(filename):
         new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
-        get_fixed_filename(new_name)
-        print(new_name)
+
+
+        # Check for uppercase characters after the current characters
+        new_name_check2 = ''
+        #print(len(new_name))
+        for i in range(len(new_name) - 1):
+            #print(new_name[i+1])
+            #print(new_name[i-1])
+            if i >= 1:
+                if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] not in ['_',' ','.',')'] and new_name_check2[-1] != '_' and new_name[i] != '_':
+                    new_name_check2 = new_name_check2 + new_name[i] + '_'
+                else:
+                    new_name_check2 = new_name_check2 + new_name[i]
+            else:
+                if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] != '_':
+                    new_name_check2 = new_name_check2 + new_name[i] + '_'
+                else:
+                    new_name_check2 = new_name_check2 + new_name[i]
+        new_name_check2 = new_name_check2 + 't'
+
+        #print(new_name_check2)
+
+        # Changing words to capital case
+        new_name_check3 = ''
+        post_underscore = 0
+        for i in range(len(new_name_check2) -1):
+
+            if post_underscore == 1:
+                new_name_check3 = new_name_check3 + new_name_check2[i].upper()
+                post_underscore = 0
+            else:
+                new_name_check3 = new_name_check3 + new_name_check2[i]
+            if new_name_check2[i] == '_':
+                post_underscore = 1
+        new_name_check3 = new_name_check3 + 't'
+
+        print(new_name_check3)
 
         # Option 1: rename file to new name - in place
         # os.rename(filename, new_name)
