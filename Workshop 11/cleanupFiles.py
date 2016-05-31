@@ -15,18 +15,20 @@ for root, dirs, files in os.walk(".", topdown=False):
         new_name_check2 = ''
         #print(len(new_name))
         for i in range(len(new_name) - 1):
-            #print(new_name[i+1])
+            #print(ord(new_name[i+1]))
             #print(new_name[i-1])
-            if i >= 1:
-                if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] not in ['_',' ','.',')'] and new_name_check2[-1] != '_' and new_name[i] != '_':
+            if i >= 1 and int(ord(new_name[i]) >= 65) and int(ord(new_name[i]) != 95):
+                if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] not in ['_',' ','.',')','('] and new_name_check2[-1] != '_' and new_name[i] != '_' and new_name not in ['_',' ','.',')','(']:
+                    new_name_check2 = new_name_check2 + new_name[i] + '_'
+                elif new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] not in ['_',' ','.',')','('] and new_name[i] != '_' and new_name[i] not in ['_',' ','.',')','(']:
                     new_name_check2 = new_name_check2 + new_name[i] + '_'
                 else:
                     new_name_check2 = new_name_check2 + new_name[i]
             else:
-                if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] != '_':
-                    new_name_check2 = new_name_check2 + new_name[i] + '_'
-                else:
-                    new_name_check2 = new_name_check2 + new_name[i]
+                #if new_name[i + 1] == new_name[i + 1].upper() and new_name[i + 1] != '_':
+                 #   new_name_check2 = new_name_check2 + new_name[i] + '_'
+                #else:
+                new_name_check2 = new_name_check2 + new_name[i]
         new_name_check2 = new_name_check2 + 't'
 
         #print(new_name_check2)
